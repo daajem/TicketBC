@@ -1,31 +1,25 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
-import ListaUsuarios from './ListaUsuarios'; // Importa el componente ListaUsuarios aquí
+import { useNavigation } from '@react-navigation/native';
 
-const ManageClientsScreen = () => {
-    const [showManageClients, setShowManageClients] = useState(false);
+const ControlUsers = () => {
+    const navigation = useNavigation();
 
     const handlePress = () => {
-        setShowManageClients(true);
+        navigation.navigate('Lista de Usuarios');
     };
 
     return (
         <View style={styles.container}>
-            {showManageClients ? (
-                <ListaUsuarios />
-            ) : (
+            <View style={styles.buttonContainer}>
                 <TouchableOpacity
                     style={[styles.button, styles.clientButton]}
                     onPress={handlePress}
                 >
-                        <Image source={require('../assets/adm_Icon1.png')} style={styles.icon} />
-                        <Text style={[styles.buttonText, { color: '#575757' }]}>Gestionar usuarios</Text>
+                    <Image source={require('../assets/adm_Icon1.png')} style={styles.icon} />
+                    <Text style={[styles.buttonText, { color: '#575757' }]}>Gestionar Clientes</Text>
                 </TouchableOpacity>
-            )}
-            <TouchableOpacity style={[styles.button, styles.employeeButton]}>
-                <Image source={require('../assets/adm_Icon2.png')} style={styles.icon} />
-                <Text style={[styles.buttonText, { color: '#575757' }]}>Gestionar colaboradores</Text>
-            </TouchableOpacity>
+            </View>
         </View>
     );
 };
@@ -36,6 +30,9 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#FFFC97', // Fondo amarillo
+    },
+    buttonContainer: {
+        marginVertical: 10,
     },
     button: {
         flexDirection: 'row',
@@ -49,12 +46,13 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginLeft: 10,
     },
+    icon: {
+        width: 60,
+        height: 60,
+    },
     clientButton: {
         backgroundColor: '#91F4FF', // Color azul para gestión de clientes
     },
-    employeeButton: {
-        backgroundColor: '#FFAA1F', // Color naranja oscuro para gestión de colaboradores
-    },
 });
 
-export default ManageClientsScreen;
+export default ControlUsers;

@@ -1,31 +1,15 @@
 import React from 'react';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
+import usersData from './usersData.json'; // Importa los datos JSON
 
-const data1 = [
-  { id: '1', fullName: 'John Doe', email: 'john.doe@example.com', username: 'johndoe' },
-  { id: '2', fullName: 'Jane Smith', email: 'jane.smith@example.com', username: 'janesmith' },
-  { id: '3', fullName: 'Alice Johnson', email: 'alice.johnson@example.com', username: 'alicejohnson' },
-  { id: '1', fullName: 'Bob Johnson', email: 'bob.johnson@example.com', username: 'bobjohnson' },
-  { id: '2', fullName: 'Emily Brown', email: 'emily.brown@example.com', username: 'emilybrown' },
-  { id: '3', fullName: 'Jack Davis', email: 'jack.davis@example.com', username: 'jackdavis' },
-  { id: '1', fullName: 'Bob Johnson', email: 'bob.johnson@example.com', username: 'bobjohnson' },
-  { id: '2', fullName: 'Emily Brown', email: 'emily.brown@example.com', username: 'emilybrown' },
-  { id: '3', fullName: 'Jack Davis', email: 'jack.davis@example.com', username: 'jackdavis' },
-  // Agrega más usuarios si es necesario
-];
+const ListaUsuarios = () => {
+  const navigation = useNavigation();
 
-const data2 = [
-  { id: '1', fullName: 'Bob Johnson', email: 'bob.johnson@example.com', username: 'bobjohnson' },
-  { id: '2', fullName: 'Emily Brown', email: 'emily.brown@example.com', username: 'emilybrown' },
-  { id: '3', fullName: 'Jack Davis', email: 'jack.davis@example.com', username: 'jackdavis' },
-  { id: '1', fullName: 'John Doe', email: 'john.doe@example.com', username: 'johndoe' },
-  { id: '2', fullName: 'Jane Smith', email: 'jane.smith@example.com', username: 'janesmith' },
-  { id: '3', fullName: 'Alice Johnson', email: 'alice.johnson@example.com', username: 'alicejohnson' },
-  { id: '1', fullName: 'Bob Johnson', email: 'bob.johnson@example.com', username: 'bobjohnson' },
-  // Agrega más usuarios si es necesario
-];
+  const handleNavigateToControlUsers = () => {
+    navigation.navigate('Control de Usuarios');
+  };
 
-const UserList = () => {
   const renderItem = ({ item }) => (
     <View style={styles.item}>
       <Text style={styles.fullName}>{item.fullName}</Text>
@@ -36,10 +20,13 @@ const UserList = () => {
 
   return (
     <View style={styles.container}>
+      <TouchableOpacity onPress={handleNavigateToControlUsers} style={styles.goBackButton}>
+        <Text style={styles.goBackText}>Volver a Control de Usuarios</Text>
+      </TouchableOpacity>
       <View style={styles.table}>
         <Text style={styles.tableTitle}>Clientes</Text>
         <FlatList
-          data={data1}
+          data={usersData.clientes} // Utiliza los datos de clientes desde el archivo JSON
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
         />
@@ -47,7 +34,7 @@ const UserList = () => {
       <View style={styles.table}>
         <Text style={styles.tableTitle}>Colaboradores</Text>
         <FlatList
-          data={data2}
+          data={usersData.colaboradores} // Utiliza los datos de colaboradores desde el archivo JSON
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
         />
@@ -56,40 +43,6 @@ const UserList = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    marginTop: 50,
-  },
-  table: {
-    flex: 1,
-    borderWidth: 1,
-    borderColor: '#000',
-    margin: 5,
-  },
-  tableTitle: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    paddingVertical: 10,
-  },
-  item: {
-    padding: 20,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
-  },
-  fullName: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  email: {
-    fontSize: 16,
-    color: '#666',
-  },
-  username: {
-    fontSize: 16,
-    color: '#666',
-  },
-});
+// Estilos omitidos por brevedad
 
-export default UserList;
+export default ListaUsuarios;
