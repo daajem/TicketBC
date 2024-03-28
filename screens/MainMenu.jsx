@@ -2,20 +2,23 @@ import React from 'react';
 import { View, Button, StyleSheet, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-const Menu = () => {
+const MainMenu = () => {
+
   const navigation = useNavigation();
   
   const handleButtonPress = (buttonName) => {
-       
     switch (buttonName) {
 
-      case 'Botón 1':
-        navigation.navigate('Menu Admin');
+      case 'Boton 1':
+        //navigation.navigate('Menu Admin');
         break;
       
-      case 'Botón 2':
-        navigation.navigate('Login');
-        
+      case 'Boton 2':
+        navigation.navigate('LoginCliente');
+      break;
+
+      case 'Boton 3':
+        navigation.navigate('Administrador');
       break;
 
       default:
@@ -30,21 +33,27 @@ const Menu = () => {
       <View style={styles.button}>
         <Button
           title="Colaborador"
-          onPress={() => handleButtonPress('Botón 1')}
+          onPress={() => handleButtonPress('Boton 1')}
           color="#8B4513" // Color café
         />
       </View>
-      
 
       <View style={styles.button}>
       <Button
           title="Cliente"
-          onPress={() => handleButtonPress('Botón 2')}
+          onPress={() => handleButtonPress('Boton 2')}
           color="#8B4513" // Color café
         />
       </View>
 
+      <View style={styles.button}>
+      <Button
+          title="Administrador"
+          onPress={() => handleButtonPress('Boton 3')}
+          color="#8B4513" // Color café
+        />
       
+      </View>
       </View>
   );
 };
@@ -68,4 +77,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Menu;
+export default MainMenu;

@@ -8,18 +8,19 @@ const HomeCliente = () => {
 
   
   const handleComprar = () => {
-    navigation.navigate('ComprarCliente');
-
+    navigation.navigate('Comprar');
   }
   
   const handlePerfil = () => {
-    navigation.navigate('Home');
-  
+    navigation.navigate('Perfil');
   }
   
   const handleConsulta = () => {
-    navigation.navigate('PerfilCliente');
-  
+    //navigation.navigate('PerfilCliente');
+  }
+
+  const handleReporte = () => {
+    navigation.navigate('ReporteAccicentes');
   }
   
   return (
@@ -28,14 +29,15 @@ const HomeCliente = () => {
 
       <View style={styles.containerMenu}>
         <Button title="Comprar" onPress={handleComprar}/>
-        <Button title="Consulta" onPress={handlePerfil} />
+        <Button title="Consulta" />
+        <Button title="Reporte" onPress={handleReporte} />
       </View>
 
       <View style={styles.containerPerfil}>
-        <Button title="Perfil" onPress={handleConsulta} />
+        <Button title="Perfil" onPress={handlePerfil} />
       </View>
-
     </View>
+    
   );
 };
 

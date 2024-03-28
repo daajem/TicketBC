@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView } from 'react-native';
 
-const ManagementScreen = () => {
+const RegisterColaborador = () => {
   const [colaborador, setColaborador] = useState('');
   const [matricula, setMatricula] = useState('');
+  const [email, setEmail] = useState('');
+  const [fechaN, setFechaNacimiento] = useState('');
+  const [numT, setNumeroTelefono] = useState('');
 
   const handleAgregarColaborador = () => {
     // Lógica para agregar un nuevo colaborador
     console.log('Agregar colaborador:', colaborador);
     // Aquí puedes realizar la lógica para guardar el nuevo colaborador en la base de datos
-  };
-
-  const handleAgregarRutaTransporte = () => {
-    // Lógica para agregar una nueva ruta de transporte
-    console.log('Agregar ruta de transporte:', rutaTransporte);
-    // Aquí puedes realizar la lógica para guardar la nueva ruta de transporte en la base de datos
   };
 
   const handleModificarDatos = () => {
@@ -41,33 +38,33 @@ const ManagementScreen = () => {
             onChangeText={setColaborador}
             placeholder="Nombre del colaborador"
           />
-          <Text style={styles.label}>Edad:</Text>
+          <Text style={styles.label}>Email:</Text>
           <TextInput
             style={styles.input}
-            value={matricula}
-            onChangeText={setMatricula}
-            placeholder="Matrícula del colaborador"
+            value={email}
+            onChangeText={setEmail}
+            placeholder="ejemplo@ejemplo.com"
           />
           <Text style={styles.label}>Fecha de nacimiento:</Text>
           <TextInput
             style={styles.input}
-            value={matricula}
-            onChangeText={setMatricula}
-            placeholder="Matrícula del colaborador"
+            value={fechaN}
+            onChangeText={setFechaNacimiento}
+            placeholder="DD/MM/AAAA"
           />
           <Text style={styles.label}>Numero telefonico:</Text>
           <TextInput
             style={styles.input}
-            value={matricula}
-            onChangeText={setMatricula}
-            placeholder="Matrícula del colaborador"
+            value={numT}
+            onChangeText={setNumeroTelefono}
+            placeholder="664-888-88-88"
           />
           <Text style={styles.label}>Matrícula del Colaborador:</Text>
           <TextInput
             style={styles.input}
             value={matricula}
             onChangeText={setMatricula}
-            placeholder="Matrícula del colaborador"
+            placeholder="123456"
           />
           <TouchableOpacity style={styles.button} onPress={handleAgregarColaborador}>
             <Text style={styles.buttonText}>Agregar Colaborador</Text>
@@ -137,4 +134,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ManagementScreen;
+export default RegisterColaborador;

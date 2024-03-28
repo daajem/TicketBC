@@ -1,36 +1,20 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+
 
 const LoginScreen = () => {
-  const auth = getAuth();
+
+  const  [email, setEmail] = React.useState('');
+  const  [password, setPassword] = React.useState('');
   const navigation = useNavigation();
 
-  const [ state, setState ] = useState ({
-    email: "",
-    password: "",
-  })
-
-  const handleChangeText = (email, value) => {
-    setState({...state, [email]: value})
+  const iniciarSesion = () => {
+    navigation.navigate('Cliente');
   }
 
-  const iniciarLogin = async () => {
-    try {
-      const userCredential = await signInWithEmailAndPassword(auth, state.email, state.password);
-      const usuarios = userCredential.usuarios;
-      console.log('Usuario autenticado:', usuarios.uid);
-
-    } catch (error) {
-      console.error('Error al iniciar sesión:', error);
-      // Aquí podrías mostrar un mensaje de error al usuario, por ejemplo:
-      // Alert.alert('Error', 'Hubo un error al iniciar sesión. Por favor, intenta de nuevo.');
-    }
-  };   
-
-  const handleRegistro = () => {
-    navigation.navigate('Registro');
+  const RegistrarUsuario = () => {
+    navigation.navigate('Registrar');
   }
 
   return (
@@ -39,22 +23,24 @@ const LoginScreen = () => {
       <Text style={styles.texto}>TicketBC</Text>
       <TextInput
         style={styles.input}
-        onChangeText={(value) => handleChangeText('email', value)}
+        onChangeText={(text) => setEmail(text)}
         placeholder='Correo electronico'
+         
       />
 
       <TextInput
         style={styles.input}
-        onChangeText={(value) => handleChangeText('password', value)}
+        onChangeText={(text) => setPassword(text)}
         secureTextEntry={true}
         placeholder='Contraseña'
+
       />
-      <TouchableOpacity onPress={handleRegistro}>
+      <TouchableOpacity onPress={RegistrarUsuario}>
         <Text style = {styles.textNoAcount}>¿No tienes cuenta? Creala</Text>
       </TouchableOpacity>
 
 
-      <Button title="Iniciar sesión" onPress={iniciarLogin} />
+      <Button title="Iniciar sesión" onPress={iniciarSesion} />
     </View>
   );
 };

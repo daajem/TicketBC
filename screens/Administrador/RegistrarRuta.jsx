@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ScrollView, Button, Alert } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView, Alert } from 'react-native';
 
 const ManagementScreen = () => {
-  const [claveRuta, setClaveRuta] = useState('');
   const [puntoPartida, setPuntoPartida] = useState('');
   const [destino, setDestino] = useState('');
   const [tiempoEstimado, setTiempoEstimado] = useState('');
-  const [puntosIntermedios, setPuntosIntermedios] = useState('');
+  // const [puntosIntermedios, setPuntosIntermedios] = useState('');
 
   const handleAgregarRuta = () => {
     // Lógica para agregar una nueva ruta
-    console.log('Agregar ruta:', { claveRuta, puntoPartida, destino, tiempoEstimado, puntosIntermedios });
+    console.log('Agregar ruta:', { puntoPartida, destino, tiempoEstimado,});
     // Aquí puedes realizar la lógica para guardar la nueva ruta en la base de datos
   };
 
@@ -31,13 +30,6 @@ const ManagementScreen = () => {
         <Text style={styles.title}>Registro de Rutas</Text>
 
         <View style={styles.form}>
-          <Text style={styles.label}>Clave de la Ruta:</Text>
-          <TextInput
-            style={styles.input}
-            value={claveRuta}
-            onChangeText={setClaveRuta}
-            placeholder="Clave de la ruta"
-          />
           <Text style={styles.label}>Punto de Partida:</Text>
           <TextInput
             style={styles.input}
@@ -52,13 +44,13 @@ const ManagementScreen = () => {
             onChangeText={setDestino}
             placeholder="Destino"
           />
-          <Text style={styles.label}>Puntos Intermedios:</Text>
+          {/* <Text style={styles.label}>Puntos Intermedios:</Text>
           <TextInput
             style={styles.input}
             value={puntosIntermedios}
             onChangeText={setPuntosIntermedios}
             placeholder="Puntos intermedios"
-          />
+          /> */}
           <Text style={styles.label}>Tiempo Estimado de Completación:</Text>
           <TextInput
             style={styles.input}

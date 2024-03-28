@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-import { collection, getDoc } from 'firebase/firestore';
-import { db } from '../database/firebase';
+
 
 const RegisterScreen = () => {
 
@@ -13,6 +12,7 @@ const RegisterScreen = () => {
     lastname: "",
     password: "",
     passwordC: "",
+    
   })
   
   const handleChangeText = (name, value) => {
