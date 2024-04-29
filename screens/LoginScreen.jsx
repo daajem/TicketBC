@@ -17,6 +17,10 @@ const LoginScreen = () => {
   const app = initializeApp(firebaseConfig);
   const auth = getAuth(app);
 
+  const handleCambiarSesion = () => {
+    navigation.navigate('Login Administrador')
+  }
+
   const handleIniciarSesion = () => {
     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -49,6 +53,9 @@ const LoginScreen = () => {
   return (
 
     <View style={styles.container}>
+      <TouchableOpacity style={styles.button} onPress={handleCambiarSesion}>
+        <Text style={styles.buttonText}></Text>
+      </TouchableOpacity>
       <Text style={styles.texto}>TicketBC</Text>
       <TextInput
         style={styles.input}
@@ -98,7 +105,19 @@ const styles = StyleSheet.create({
     fontSize: 48,
     margin: 30,
   },
-
+  button: {
+    position: 'absolute',
+    top: 20,
+    right: 20,
+    backgroundColor: '#ccc',
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
   textNoAcount:{
     color: 'blue',
     marginBottom: 20,
