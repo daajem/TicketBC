@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import MainMenu from '../screens/MainMenu';
 import LoginScreen from '../screens/LoginScreen';
+import ColaboradorLogin from '../screens/ColaboradorLogin';
 
 
 import { HomeAdmin, 
@@ -31,11 +32,12 @@ const MainStack = () => {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator initialRouteName="Cliente">
+      <Stack.Navigator initialRouteName="Login">
 
         <Stack.Screen name="Principal" component={MainMenu} />
         
         <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Login Administrador" component={ColaboradorLogin} />
         
 
         {/* Administracion */}

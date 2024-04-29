@@ -3,13 +3,23 @@ import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-nati
 import { useNavigation } from '@react-navigation/native';
 
 const ConsultaRuta = () => {
-    const navigation = useNavigation();
 
+  const [state, useState] = useState ({
+    puntoInicio: "",
+    puntoFinal: "",
+    tiempoEstimado: ""
+  });
 
+  const handleChangeText = (puntoIncio, value) => {
+    setState({...state, [puntoIncio]: value});
+  }
+    
+  
+  const navigation = useNavigation();
   const monthlyReportData = [
-    { id: 1, puntoIncio: 'Mariano Matamoros', puntoFinal: 'Centro', tiempoEstimado: '1hr' },
-    { id: 2, puntoIncio: '5 y 10', puntoFinal: 'Centro', tiempoEstimado: '30min' },
-    { id: 3, puntoIncio: '5 y 10', puntoFinal: 'Los Pinos', tiempoEstimado: '35min' },
+    { puntoIncio: 'Mariano Matamoros', puntoFinal: 'Centro', tiempoEstimado: '1hr' },
+    { puntoIncio: '5 y 10', puntoFinal: 'Centro', tiempoEstimado: '30min' },
+    { puntoIncio: '5 y 10', puntoFinal: 'Los Pinos', tiempoEstimado: '35min' },
   ];
 
   const consultar = () => {
@@ -22,7 +32,8 @@ const ConsultaRuta = () => {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Ruta</Text>
         {monthlyReportData.map((report) => (
-          <TouchableOpacity onPress={consultar} key={report.id} style={styles.item}>
+          <TouchableOpacity onPress={consultar} style={styles.item}>
+            
             <Text>Punto inicio: {report.puntoIncio}</Text>
             <Text>Destino: {report.puntoFinal}</Text>
             <Text>Tiempo estimado: {report.tiempoEstimado}</Text>

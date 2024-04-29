@@ -46,7 +46,7 @@ const AccidentReportScreen = () => {
             style={styles.input}
             value={ruta}
             onChangeText={setRuta}
-            placeholder="Ruta"
+            placeholder="Ruta A - Ruta B"
           />
 
           <Text style={styles.label}>Zona del Accidente:</Text>

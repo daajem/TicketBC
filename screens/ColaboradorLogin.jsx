@@ -49,7 +49,7 @@ const ColaboradorLogin = () => {
   return (
 
     <View style={styles.container}>
-      <Text style={styles.texto}>Sesion de Colaborador</Text>
+      <Text style={styles.texto}>Sesion de Administradores</Text>
       <TextInput
         style={styles.input}
         onChangeText={(text) => setEmail(text)}
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   texto: {
-    fontSize: 48,
+    fontSize: 38,
     margin: 30,
   },
 
