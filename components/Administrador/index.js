@@ -7,7 +7,7 @@ import ListaColaboradores from './ListaColaboradores';
 
 import RegisterColaborador from './RegisterColaborador';
 
-import ReporteDiario from './ReporteDiario';
+import ReporteDiario from './GuardarReporteDiario';
 import ReporteMensual from './ReporteMensual';
 
 import ConsultaRuta from './ConsultaRuta';
