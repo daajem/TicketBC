@@ -1,19 +1,23 @@
 import HomeAdmin from './HomeAdmin';
 import HomeReportes from './HomeReportes';
-
 import HomeUsuarios from './HomeUsuarios';
+
 import ListaCliente from './ListaCliente';
 import ListaColaboradores from './ListaColaboradores';
 
 import RegisterColaborador from './RegisterColaborador';
 
-import ReporteDiario from './GuardarReporteDiario';
-import ReporteMensual from './ReporteMensual';
+// Reporte diario
+import GuardarReporteDiario from './ReporteDiario/GuardarReporteDiario';
+import ListaReporteDiario from './ReporteDiario/ListaReporteDiario';
+import ShowReporteDiario from './ReporteDiario/ShowReporteDiario';
 
-import ConsultaRuta from './ConsultaRuta';
-import RegistrarRuta from './RegistrarRuta';
+import ReporteMensual from './ReporteMensual/ReporteMensual';
 
-import ConsultaAccidentes from './ConsultaAccidentes';
+import ConsultaRuta from './Ruta/ConsultaRuta';
+import RegistrarRuta from './Ruta/RegistrarRuta';
+
+import ConsultaAccidentes from './Accidentes/ConsultaAccidentes';
 
 
 export { 
@@ -23,8 +27,10 @@ export {
     ListaCliente, 
     ListaColaboradores,
     RegisterColaborador,  
-    ReporteDiario, 
-    ReporteMensual, 
+    GuardarReporteDiario, 
+    ListaReporteDiario,
+    ShowReporteDiario, 
+    ReporteMensual,
     RegistrarRuta,
     ConsultaRuta,
     ConsultaAccidentes};

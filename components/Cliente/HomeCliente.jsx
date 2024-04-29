@@ -13,7 +13,7 @@ const HomeCliente = () => {
   }
 
   const handleOpenProfileMenu = () => {
-    setShowProfileMenu(true);
+    navigation.navigate('Perfil')
   }
 
   const handleCloseProfileMenu = () => {

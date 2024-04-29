@@ -13,7 +13,9 @@ import { HomeAdmin,
   ListaColaboradores, 
   ListaCliente, 
   RegisterColaborador, 
-  ReporteDiario, 
+  GuardarReporteDiario,
+  ListaReporteDiario, 
+  ShowReporteDiario,
   ReporteMensual, 
   ConsultaRuta,
   RegistrarRuta,
@@ -32,7 +34,7 @@ const MainStack = () => {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator initialRouteName="Administrador">
 
         <Stack.Screen name="Principal" component={MainMenu} />
         
@@ -48,7 +50,11 @@ const MainStack = () => {
         <Stack.Screen name="ListaColaboradores" component={ListaColaboradores} />
         <Stack.Screen name="RegistrarColaborador" component={RegisterColaborador} />
         <Stack.Screen name="ConsultaAccidentes" component={ConsultaAccidentes} />
-        <Stack.Screen name="ReporteDiario" component={ReporteDiario} />
+
+        <Stack.Screen name="GuardarReporteDiario" component={GuardarReporteDiario} />
+        <Stack.Screen name="DetallesReporte" component={ListaReporteDiario} />
+        <Stack.Screen name="ShowReporteDiario" component={ShowReporteDiario} />
+
         <Stack.Screen name="ReporteMensual" component={ReporteMensual} />
         <Stack.Screen name="ConsultaRuta" component={ConsultaRuta} />
         <Stack.Screen name="RegistrarRuta" component={RegistrarRuta} />

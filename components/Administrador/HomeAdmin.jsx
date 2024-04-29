@@ -34,7 +34,7 @@ const AdminMenu = () => {
     return (
     <View style={styles.container}>
         
-        <Text style={styles.title}>Menú de Reportes</Text>
+        <Text style={styles.title}>Menú</Text>
 
         <View style={styles.button}>
             <Button 

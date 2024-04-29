@@ -9,15 +9,11 @@ const HomeReportes = () => {
       switch (buttonName) {
 
       case 'Boton 1':
-        navigation.navigate('ReporteDiario');
+        navigation.navigate('DetallesReporte');
         break;
       
       case 'Boton 2':
         navigation.navigate('ReporteMensual');
-      break;
-
-      case 'Boton 3':
-        navigation.navigate('Administrador');
       break;
 
       default:

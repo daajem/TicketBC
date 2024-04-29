@@ -42,7 +42,7 @@ const LoginScreen = () => {
       console.log('Cuenta Creada')
       const user = userCredential.user;
       console.log(user)
-      Alert.alert(user.message)
+      Alert.alert('user.message')
     })    
      .catch(error => {
       console.log(error)
