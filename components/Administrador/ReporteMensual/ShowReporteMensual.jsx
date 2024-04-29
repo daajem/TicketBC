@@ -5,12 +5,12 @@ import appFirebase from '../../../firebaseFirestore';
 import { getFirestore, collection, addDoc, getDoc, doc, deleteDoc, getDocs, setDoct} from 'firebase/firestore';
 const db = getFirestore(appFirebase);
 
-const ShowReporteDiario = (props) => {
+const ShowReporteMensual = (props) => {
     const [reported, setReported] = useState({});
 
     const getOneReporte = async (id) => {
         try {
-            const docRef = doc(db, 'reportediario', id);
+            const docRef = doc(db, 'reportemensual', id);
             const docSnap = await getDoc(docRef);
             setReported(docSnap.data());
         } catch (error) {
@@ -19,14 +19,14 @@ const ShowReporteDiario = (props) => {
     };
 
     useEffect(() => {
-        getOneReporte(props.route.params.fechaID);
+        getOneReporte(props.route.params.mesID);
     }, []);
 
     const deleteReporte = async (id) => {
         try {
-            await deleteDoc(doc(db, 'reportediario', id));
+            await deleteDoc(doc(db, 'reportemensual', id));
             Alert.alert('Reporte eliminado con éxito');
-            props.navigation.navigate('Reporte Diario');
+            props.navigation.navigate('Reporte Mensual');
         } catch (error) {
             console.error(error);
         }
@@ -34,10 +34,10 @@ const ShowReporteDiario = (props) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>Fecha: {reported.fecha}</Text>
+            <Text style={styles.text}>Fecha: {reported.month}</Text>
             <Text style={styles.text}>Total Tickets: {reported.totalTickets}</Text>
             <Text style={styles.text}>Total Dinero de Tickets: {reported.totalAmount}</Text>
-            <TouchableOpacity style={styles.button} onPress={() => deleteReporte(props.route.params.fechaID)}>
+            <TouchableOpacity style={styles.button} onPress={() => deleteReporte(props.route.params.mesID)}>
                 <Text style={styles.buttonText}>Eliminar</Text>
             </TouchableOpacity>
         </View>
@@ -68,4 +68,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default ShowReporteDiario;
+export default ShowReporteMensual;

@@ -6,10 +6,10 @@ import { getFirestore, collection, addDoc, getDoc, doc, deleteDoc, getDocs, setD
 const db = getFirestore(appFirebase);
 
 
-const GuardarReporteDiario = (props) => {
+const GuardarReporteMensual = (props) => {
 
     const initialState = {
-        fecha: "",
+        month: "",
         totalTickets: "",
         totalAmount: "",
     };
@@ -20,13 +20,13 @@ const GuardarReporteDiario = (props) => {
         setState({ ...state, [field]: value });
     };
 
-    const saveReporteDiario = async () => {
+    const saveReporteMensual = async () => {
         try {
-            await addDoc(collection(db, 'reportediario'), {
+            await addDoc(collection(db, 'reportemensual'), {
                 ...state
             });
             Alert.alert('Guardado con Éxito');
-            props.navigation.navigate('Registrar Accidente');
+            props.navigation.navigate('Reporte Mensual');
         } catch (error) {
             console.error(error);
         }
@@ -37,9 +37,9 @@ const GuardarReporteDiario = (props) => {
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Fecha"
-                    onChangeText={(value) => handleChangeText(value, 'fecha')}
-                    value={state.fecha}
+                    placeholder="Mes"
+                    onChangeText={(value) => handleChangeText(value, 'month')}
+                    value={state.month}
                 />
             </View>
 
@@ -62,7 +62,7 @@ const GuardarReporteDiario = (props) => {
             </View>
 
             <View style={styles.buttonContainer}>
-                <Button title="Guardar" onPress={saveReporteDiario} />
+                <Button title="Guardar" onPress={saveReporteMensual} />
             </View>
         </ScrollView>
     );
@@ -88,4 +88,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default GuardarReporteDiario;
+export default GuardarReporteMensual;

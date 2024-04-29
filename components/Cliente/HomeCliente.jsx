@@ -1,91 +1,87 @@
-import React, { useState } from 'react';
-import { View, Button, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import React from 'react';
+import { View, Button, StyleSheet, TouchableOpacity} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome'; // Suponiendo que estás usando FontAwesome para el ícono
 
 const HomeCliente = () => {
   const navigation = useNavigation();
+  
+  const handlePerfilCliente = () => {
+    navigation.navigate('Perfil');
 
-  const [showProfileMenu, setShowProfileMenu] = useState(false);
-
-  const handleComprar = () => {
-    navigation.navigate('Comprar');
   }
+  const handlePress = (buttonName) => {
+      
+      switch (buttonName) {
 
-  const handleOpenProfileMenu = () => {
-    navigation.navigate('Perfil')
-  }
+      case 'Boton 1':
+        navigation.navigate('Comprar');
+        break;
+      
+      case 'Boton 2':
+        navigation.navigate('Consultar QR');
+      break;
 
-  const handleCloseProfileMenu = () => {
-    setShowProfileMenu(false);
-  }
+      case 'Boton 3':
+          navigation.navigate('Registrar Accidente');
+      break;
 
-  const handleConsulta = () => {
-    // navigation.navigate('PerfilCliente');
-  }
-
-  const handleReporte = () => {
-    navigation.navigate('ReporteAccicentes');
-  }
-
-  const handleLogout = () => {
-    // Aquí podrías agregar la lógica para cerrar sesión
-  }
+      default:
+        break;
+    }
+  };
 
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <View style={styles.containerMenu}>
-        <Button title="Comprar" onPress={handleComprar}/>
-        <Button title="Consulta" onPress={handleConsulta} />
-        <Button title="Reporte" onPress={handleReporte} />
-      </View>
+    <View style={styles.container}>
+      
+      <TouchableOpacity style={styles.profileIcon} onPress={handlePerfilCliente}>
+        <Icon name="user" size={24} color="#001BFF" />
+      </TouchableOpacity>
 
-      <View style={styles.containerPerfil}>
-        <TouchableOpacity onPress={handleOpenProfileMenu}>
-          <Icon name="user" size={30} color="blue" />
-        </TouchableOpacity>
-        {showProfileMenu && (
-          <View style={styles.profileMenu}>
-            
-            <TouchableOpacity onPress={handleCloseProfileMenu}>
-              <Text style={styles.menuItem}>Entrar al perfil</Text>
-            </TouchableOpacity>
-            
-            <TouchableOpacity onPress={handleLogout}>
-              <Text style={styles.menuItem}>Cerrar Sesión</Text>
-            </TouchableOpacity>
-            {/* Aquí podrías agregar más opciones de menú */}
-          </View>
-        )}
+      <View style={styles.button}>
+        <Button
+          title="Comprar"
+          onPress={() => handlePress('Boton 1')}
+        />
+      </View>
+      <View style={styles.button}>
+        <Button
+          title="Consultar QR"
+          onPress={() => handlePress('Boton 2')}
+          
+        />
+      </View>
+      <View style={styles.button}>
+        <Button
+          title="Registrar Accidente"
+          onPress={() => handlePress('Boton 3')}
+          
+        />
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  containerPerfil: {
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  profileIcon: {
     position: 'absolute',
-    top: 50,
-    right: 25,
+    top: 20,
+    right: 20,
+    zIndex: 999,
   },
-  containerMenu: {
-    flexDirection: 'row',
-    marginBottom: 30,
-  },
-  profileMenu: {
-    position: 'absolute',
-    top: 30,
-    right: 0,
-    backgroundColor: '#fff',
-    padding: 10,
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: '#ccc',
-  },
-  menuItem: {
-    fontSize: 16,
-    paddingVertical: 5,
+  button: {
+    marginVertical: 10,
+    width: '80%',
+    borderRadius: 10,
+    backgroundColor: '#8B4513', // Color café
   },
 });
+
+
 
 export default HomeCliente;

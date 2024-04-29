@@ -1,44 +1,45 @@
-import React, { useEffect, useState } from 'react';
-import { View, ScrollView, StyleSheet, Text, TouchableOpacity, Button } from 'react-native';
+import React, {useEffect, useState } from 'react';
+import { View, Text, ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 
 import appFirebase from '../../../firebaseFirestore';
 import { getFirestore, collection, addDoc, getDoc, doc, deleteDoc, getDocs, setDoct} from 'firebase/firestore';
 const db = getFirestore(appFirebase);
 
-const ListaReporteDiario = (props) => {
-
+const ListaAccidentes = (props) => {
   const [ lista, setLista ] = useState([])
-
+  
   useEffect(() => {
     const getLista = async() => {
       try{
-        const querySnapshot = await getDocs(collection(db, 'reportediario'))
+        const querySnapshot = await getDocs(collection(db, 'accidentes'))
         const docs = []
         querySnapshot.forEach((doc) => {
-          const data = doc.data();
-          const { fecha, totalTickets, totalAmount } = data;
-          docs.push({
-            id: doc.id,
-            fecha,
-            totalTickets,
-            totalAmount,
+            const data = doc.data();
+            const { fecha, chofer, unidad, ruta, zona } = data;
+            docs.push({
+              id: doc.id,
+              fecha,
+              chofer,
+              unidad,
+              ruta,
+              zona,
+            });
           });
-        });
-        setLista(docs);
-      }catch (error){
-        console.error(error);
+          setLista(docs);
+        }catch (error){
+          console.error(error);
+        }
       }
-    }
-    getLista();
-  },[])
+      getLista();
+    },[])
+
+
 
   return (
     <ScrollView style={styles.container}>
-      <Button onPress={()=>props.navigation.navigate('Registar Reporte Diario')} title="Registrar Reporte"/>
-
       <View style={styles.listaContainer}>
         {lista.map((list) => (
-        <TouchableOpacity key={list.id} onPress={()=> props.navigation.navigate('Detalles Reporte Diario', {fechaID:list.id})}> 
+        <TouchableOpacity key={list.id} onPress={()=> props.navigation.navigate('Detalles Accidentes', {fechaID:list.id})}> 
           <Text style={styles.fechaText}>{list.fecha}</Text>
         </TouchableOpacity>
       ))}
@@ -65,4 +66,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListaReporteDiario;
+export default ListaAccidentes;

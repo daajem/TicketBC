@@ -13,7 +13,7 @@ const AdminMenu = () => {
           break;
         
         case 'Boton 2':
-          navigation.navigate('ConsultaAccidentes');
+          navigation.navigate('Consultar Accidentes');
         break;
   
         case 'Boton 3':
@@ -21,7 +21,7 @@ const AdminMenu = () => {
         break;
 
         case 'Boton 4':
-            navigation.navigate('ReporteMenu');
+            navigation.navigate('Reportes');
 
         break;
   
@@ -30,7 +30,6 @@ const AdminMenu = () => {
       }
     };
         
-
     return (
     <View style={styles.container}>
         
