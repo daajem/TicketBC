@@ -16,8 +16,10 @@ import GuardarReporteMensual from './ReporteMensual/GuardarReporteMensual';
 import ListaReporteMensual from './ReporteMensual/ListaReporteMensual';
 import ShowReporteMensual from './ReporteMensual/ShowReporteMensual';
 
-import ConsultaRuta from './Ruta/ConsultaRuta';
-import RegistrarRuta from './Ruta/RegistrarRuta';
+// Rutas
+import GuardarRuta from './Ruta/GuardarRuta';
+import ListaRuta from './Ruta/ListaRuta';
+import ShowRuta from './Ruta/ShowRuta';
 
 // Accidentes
 import ListaAccidentes from './Accidentes/ListaAccidentes';
@@ -29,7 +31,6 @@ export {
     HomeUsuarios, 
     ListaCliente, 
     ListaColaboradores,
-    RegisterColaborador,  
     
     GuardarReporteDiario, 
     ListaReporteDiario,
@@ -39,8 +40,9 @@ export {
     ListaReporteMensual,
     ShowReporteMensual,
     
-    RegistrarRuta,
-    ConsultaRuta,
+    GuardarRuta,
+    ListaRuta,
+    ShowRuta,
     
     ListaAccidentes,
     ShowAccidentes };

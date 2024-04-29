@@ -5,12 +5,12 @@ import appFirebase from '../../../firebaseFirestore';
 import { getFirestore, collection, addDoc, getDoc, doc, deleteDoc, getDocs, setDoct} from 'firebase/firestore';
 const db = getFirestore(appFirebase);
 
-const GuardarReporteMensual = (props) => {
+const GuardarRuta = (props) => {
 
     const initialState = {
-        month: "",
-        totalTickets: "",
-        totalAmount: "",
+        puntoInicio: "",
+        puntoFinal: "",
+        tiempoEstimado: "",
     };
 
     const [state, setState] = useState(initialState);
@@ -19,13 +19,13 @@ const GuardarReporteMensual = (props) => {
         setState({ ...state, [field]: value });
     };
 
-    const saveReporteMensual = async () => {
+    const saveRuta = async () => {
         try {
-            await addDoc(collection(db, 'reportemensual'), {
+            await addDoc(collection(db, 'ruta'), {
                 ...state
             });
             Alert.alert('Guardado con Éxito');
-            props.navigation.navigate('Reporte Mensual');
+            props.navigation.navigate('Rutas');
         } catch (error) {
             console.error(error);
         }
@@ -36,32 +36,32 @@ const GuardarReporteMensual = (props) => {
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Mes"
-                    onChangeText={(value) => handleChangeText(value, 'month')}
-                    value={state.month}
+                    placeholder="Punto inicial de la ruta"
+                    onChangeText={(value) => handleChangeText(value, 'puntoInicial')}
+                    value={state.puntoInicio}
                 />
             </View>
 
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Total de Tickets"
-                    onChangeText={(value) => handleChangeText(value, 'totalTickets')}
-                    value={state.totalTickets}
+                    placeholder="Destino de la ruta"
+                    onChangeText={(value) => handleChangeText(value, 'puntoFinal')}
+                    value={state.puntoFinal}
                 />
             </View>
 
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
-                    placeholder="Dinero total por los tickets"
-                    onChangeText={(value) => handleChangeText(value, 'totalAmount')}
-                    value={state.totalAmount}
+                    placeholder="Tiempo estimado para llegar al destino"
+                    onChangeText={(value) => handleChangeText(value, 'tiempoEstimado')}
+                    value={state.tiempoEstimado}
                 />
             </View>
 
             <View style={styles.buttonContainer}>
-                <Button title="Guardar" onPress={saveReporteMensual} />
+                <Button title="Guardar" onPress={saveRuta} />
             </View>
         </ScrollView>
     );
@@ -87,4 +87,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default GuardarReporteMensual;
+export default GuardarRuta;

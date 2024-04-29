@@ -8,17 +8,23 @@ import ColaboradorLogin from '../screens/ColaboradorLogin';
 
 import { HomeAdmin, 
   HomeReportes, 
-  HomeUsuarios, 
+  HomeUsuarios,
+
   ListaColaboradores, 
-  ListaCliente, 
+  ListaCliente,
+
   GuardarReporteDiario,
   ListaReporteDiario, 
   ShowReporteDiario,
+
   GuardarReporteMensual,
   ListaReporteMensual,
-  ShowReporteMensual, 
-  ConsultaRuta,
-  RegistrarRuta,
+  ShowReporteMensual,
+
+  GuardarRuta,
+  ListaRuta,
+  ShowRuta,
+
   ListaAccidentes,
   ShowAccidentes, } from '../components/Administrador';
 
@@ -55,7 +61,7 @@ const MainStack = () => {
   
 
         {/* Accidentes */}
-        <Stack.Screen name="Consultar Accidentes" component={ListaAccidentes} />
+        <Stack.Screen name="Accidentes" component={ListaAccidentes} />
         <Stack.Screen name="Detalles Accidentes" component={ShowAccidentes} />
         
         {/* ReporteDiario */}
@@ -64,13 +70,14 @@ const MainStack = () => {
         <Stack.Screen name="Detalles Reporte Diario" component={ShowReporteDiario} />
 
         {/* ReporteMensual */}
-        <Stack.Screen name="Registar Reporte Mensual" component={GuardarReporteMensual} />
+        <Stack.Screen name="Registrar Reporte Mensual" component={GuardarReporteMensual} />
         <Stack.Screen name="Reporte Mensual" component={ListaReporteMensual} />
         <Stack.Screen name="Detalles Reporte Mensual" component={ShowReporteMensual}/>
 
         {/* Rutas */}
-        <Stack.Screen name="ConsultaRuta" component={ConsultaRuta} />
-        <Stack.Screen name="RegistrarRuta" component={RegistrarRuta} />
+        <Stack.Screen name="Registrar Ruta" component={GuardarRuta} />
+        <Stack.Screen name="Rutas" component={ListaRuta} />
+        <Stack.Screen name="Detalles Ruta" component={ShowRuta} />
 
         {/* Cliente */}
         <Stack.Screen name="Cliente" component={HomeCliente} />

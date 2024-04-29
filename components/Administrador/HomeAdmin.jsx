@@ -9,20 +9,19 @@ const AdminMenu = () => {
         switch (buttonName) {
 
         case 'Boton 1':
-          navigation.navigate('UsuariosMenu');
-          break;
+          navigation.navigate('Usuarios');
+        break;
         
         case 'Boton 2':
-          navigation.navigate('Consultar Accidentes');
+          navigation.navigate('Accidentes');
         break;
   
         case 'Boton 3':
-            navigation.navigate('ConsultaRuta');
+            navigation.navigate('Rutas');
         break;
 
         case 'Boton 4':
             navigation.navigate('Reportes');
-
         break;
   
         default:

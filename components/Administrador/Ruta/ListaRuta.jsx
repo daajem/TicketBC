@@ -5,23 +5,23 @@ import appFirebase from '../../../firebaseFirestore';
 import { getFirestore, collection, addDoc, getDoc, doc, deleteDoc, getDocs, setDoct} from 'firebase/firestore';
 const db = getFirestore(appFirebase);
 
-const ListaReporteMensual = (props) => {
+const ListaRuta = (props) => {
 
   const [ lista, setLista ] = useState([])
 
   useEffect(() => {
     const getLista = async() => {
       try{
-        const querySnapshot = await getDocs(collection(db, 'reportemensual'))
+        const querySnapshot = await getDocs(collection(db, 'ruta'))
         const docs = []
         querySnapshot.forEach((doc) => {
           const data = doc.data();
-          const { month, totalTickets, totalAmount } = data;
+          const { puntoInicio, puntoFinal, tiempoEstimado } = data;
           docs.push({
             id: doc.id,
-            month,
-            totalTickets,
-            totalAmount,
+            puntoInicio,
+            puntoFinal,
+            tiempoEstimado,
           });
         });
         setLista(docs);
@@ -34,12 +34,12 @@ const ListaReporteMensual = (props) => {
 
   return (
     <ScrollView style={styles.container}>
-      <Button onPress={()=>props.navigation.navigate('Registrar Reporte Mensual')} title="Registrar Reporte"/>
+      <Button onPress={()=>props.navigation.navigate('Detalles Ruta')} title="Registrar Ruta"/>
 
       <View style={styles.listaContainer}>
         {lista.map((list) => (
-        <TouchableOpacity key={list.id} onPress={()=> props.navigation.navigate('Detalles Reporte Mensual', {mesID:list.id})}> 
-          <Text style={styles.fechaText}>{list.month}</Text>
+        <TouchableOpacity key={list.id} onPress={()=> props.navigation.navigate('Detalles Ruta', {rutaID:list.id})}> 
+          <Text style={styles.fechaText}>{list.puntoInicio} - {list.puntoFinal} </Text>
         </TouchableOpacity>
       ))}
       </View>
@@ -65,4 +65,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListaReporteMensual;
+export default ListaRuta;
