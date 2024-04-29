@@ -11,7 +11,6 @@ import { HomeAdmin,
   HomeUsuarios, 
   ListaColaboradores, 
   ListaCliente, 
-  RegisterColaborador, 
   GuardarReporteDiario,
   ListaReporteDiario, 
   ShowReporteDiario,
@@ -50,9 +49,10 @@ const MainStack = () => {
         <Stack.Screen name="Reportes" component={HomeReportes} />
         <Stack.Screen name="Usuarios" component={HomeUsuarios} />
 
+        {/* Usuarios */}
         <Stack.Screen name="ListaCliente" component={ListaCliente} />
         <Stack.Screen name="ListaColaboradores" component={ListaColaboradores} />
-        <Stack.Screen name="RegistrarColaborador" component={RegisterColaborador} />
+  
 
         {/* Accidentes */}
         <Stack.Screen name="Consultar Accidentes" component={ListaAccidentes} />
@@ -68,8 +68,7 @@ const MainStack = () => {
         <Stack.Screen name="Reporte Mensual" component={ListaReporteMensual} />
         <Stack.Screen name="Detalles Reporte Mensual" component={ShowReporteMensual}/>
 
-
-        
+        {/* Rutas */}
         <Stack.Screen name="ConsultaRuta" component={ConsultaRuta} />
         <Stack.Screen name="RegistrarRuta" component={RegistrarRuta} />
 
@@ -79,8 +78,6 @@ const MainStack = () => {
         <Stack.Screen name="Comprar" component={PurchaseCliente} />
         <Stack.Screen name="Registrar" component={RegisterCliente} />
         <Stack.Screen name="Registrar Accidente" component={GuardarAccidente} />
-        
-        {/* Colaborador */}
 
       </Stack.Navigator>
 

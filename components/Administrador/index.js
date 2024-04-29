@@ -2,10 +2,9 @@ import HomeAdmin from './HomeAdmin';
 import HomeReportes from './HomeReportes';
 import HomeUsuarios from './HomeUsuarios';
 
-import ListaCliente from './ListaCliente';
-import ListaColaboradores from './ListaColaboradores';
-
-import RegisterColaborador from './RegisterColaborador';
+// Usuarios
+import ListaColaboradores from './Usuarios/ListaColaboradores';
+import ListaCliente from './Usuarios/ListaCliente';
 
 // Reporte diario
 import GuardarReporteDiario from './ReporteDiario/GuardarReporteDiario';

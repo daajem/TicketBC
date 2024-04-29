@@ -8,7 +8,7 @@ const data1 = [
   // Agrega más usuarios si es necesario
 ];
 
-const ListaCliente = () => {
+const ListaColaboradores = () => {
   const navigation = useNavigation();
   
   const registrar = () => {
@@ -81,4 +81,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ListaCliente;
+export default ListaColaboradores;
