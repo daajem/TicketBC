@@ -26,7 +26,7 @@ const saveAccidente = async() => {
       ...state
     });
     Alert.alert('Enviado con Éxito');
-    props.navigation.navigate('Registar Accidente');
+    props.navigation.navigate('Reporte Diario');
   }catch (error) {
     console.error(error);
   }
@@ -37,7 +37,7 @@ const saveAccidente = async() => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.formContainer}>
-        <Text style={styles.header}>Reporte de Accidente</Text>
+        <Text style={styles.header}>Registra</Text>
 
         <View style={styles.inputGroup}>
           <Text>Fecha:</Text>

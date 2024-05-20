@@ -41,7 +41,7 @@ const MainStack = () => {
   return (
     <NavigationContainer>
 
-      <Stack.Navigator initialRouteName="Administrador">
+      <Stack.Navigator initialRouteName="Login">
 
         
         

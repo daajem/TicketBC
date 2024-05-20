@@ -37,7 +37,7 @@ const ShowRuta = (props) => {
             <Text style={styles.text}>Punto Inicial: {rutaR.puntoInicio}</Text>
             <Text style={styles.text}>Destino: {rutaR.puntoFinal}</Text>
             <Text style={styles.text}>Tiempo estimado: {rutaR.tiempoEstimado}</Text>
-            <TouchableOpacity style={styles.button} onPress={() => deleteRuta(props.route.params.mesID)}>
+            <TouchableOpacity style={styles.button} onPress={() => deleteRuta(props.route.params.rutaID)}>
                 <Text style={styles.buttonText}>Eliminar</Text>
             </TouchableOpacity>
         </View>

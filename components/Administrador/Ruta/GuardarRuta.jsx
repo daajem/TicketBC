@@ -37,7 +37,7 @@ const GuardarRuta = (props) => {
                 <TextInput
                     style={styles.input}
                     placeholder="Punto inicial de la ruta"
-                    onChangeText={(value) => handleChangeText(value, 'puntoInicial')}
+                    onChangeText={(value) => handleChangeText(value, 'puntoInicio')}
                     value={state.puntoInicio}
                 />
             </View>

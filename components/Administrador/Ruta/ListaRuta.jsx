@@ -30,11 +30,11 @@ const ListaRuta = (props) => {
       }
     }
     getLista();
-  },[])
+  },[lista])
 
   return (
     <ScrollView style={styles.container}>
-      <Button onPress={()=>props.navigation.navigate('Detalles Ruta')} title="Registrar Ruta"/>
+      <Button onPress={()=>props.navigation.navigate('Registrar Ruta')} title="Registrar Ruta"/>
 
       <View style={styles.listaContainer}>
         {lista.map((list) => (

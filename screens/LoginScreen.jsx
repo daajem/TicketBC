@@ -27,7 +27,7 @@ const LoginScreen = () => {
       console.log('Se inicio sesion')
       const user = userCredential.user;
       console.log(user)
-      Alert.alert(user.message)
+      Alert.alert("Se inicio sesion correctamente")
       navigation.navigate('Cliente');
     })    
      .catch(error => {
@@ -42,7 +42,7 @@ const LoginScreen = () => {
       console.log('Cuenta Creada')
       const user = userCredential.user;
       console.log(user)
-      Alert.alert('user.message')
+      Alert.alert('Cuenta creada con exito')
     })    
      .catch(error => {
       console.log(error)

@@ -30,7 +30,7 @@ const ListaReporteMensual = (props) => {
       }
     }
     getLista();
-  },[])
+  },[lista])
 
   return (
     <ScrollView style={styles.container}>

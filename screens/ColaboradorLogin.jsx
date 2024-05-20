@@ -23,7 +23,7 @@ const ColaboradorLogin = () => {
       console.log('Se inicio sesion')
       const user = userCredential.user;
       console.log(user)
-      Alert.alert(user.message)
+      Alert.alert('Se inicio sesion correctamente')
       navigation.navigate('Administrador');
     })    
      .catch(error => {

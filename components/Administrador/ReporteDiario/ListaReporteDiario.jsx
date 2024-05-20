@@ -30,7 +30,7 @@ const ListaReporteDiario = (props) => {
       }
     }
     getLista();
-  },[])
+  },[lista])
 
   return (
     <ScrollView style={styles.container}>

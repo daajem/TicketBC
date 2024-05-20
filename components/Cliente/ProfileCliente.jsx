@@ -11,10 +11,8 @@ export default function App() {
         />
       </View>
       <View style={styles.profile}>
-        <Text style={styles.label}>Nombre:</Text> 
-        <Text style={styles.value}>John</Text>
-        <Text style={styles.label}>Apellido:</Text>
-        <Text style={styles.value}>Doe</Text>
+        <Text style={styles.label}>Email:</Text> 
+
       </View>
     </View>
   );
